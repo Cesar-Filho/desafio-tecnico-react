@@ -1,7 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
-import { Note } from '~/@types/notes';
 import { useTranslation } from 'react-i18next';
+
+import { Note } from '~/@types/notes';
 import { theme } from '~/theme';
 
 interface NoteCardProps {
@@ -9,7 +10,7 @@ interface NoteCardProps {
   onPress: () => void;
 }
 
-const NoteCard: React.FC<NoteCardProps> = ({ note, onPress }) => {
+export const NoteCard: React.FC<NoteCardProps> = ({ note, onPress }) => {
   const { t } = useTranslation();
   return (
     <TouchableOpacity
@@ -80,5 +81,3 @@ const styles = StyleSheet.create({
   },
   moreText: { color: theme.colors.primaryDark, fontWeight: 'bold' },
 });
-
-export default NoteCard;

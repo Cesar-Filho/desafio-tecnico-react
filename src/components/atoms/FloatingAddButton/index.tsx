@@ -9,7 +9,10 @@ interface FloatingAddButtonProps {
   accessibilityLabel?: string;
 }
 
-const FloatingAddButton: React.FC<FloatingAddButtonProps> = ({ onPress, accessibilityLabel }) => (
+export const FloatingAddButton: React.FC<FloatingAddButtonProps> = ({
+  onPress,
+  accessibilityLabel,
+}) => (
   <TouchableOpacity
     style={styles.button}
     onPress={onPress}
@@ -38,5 +41,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default FloatingAddButton;

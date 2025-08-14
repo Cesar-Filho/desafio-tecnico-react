@@ -2,9 +2,9 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Note, NoteCategory } from '~/@types/notes';
 
-import NotesFilter from '~/components/organisms/NotesFilter';
-import NotesList from '~/components/organisms/NotesList';
-import FloatingAddButton from '~/components/atoms/FloatingAddButton';
+import { FloatingAddButton } from '~/components/atoms/FloatingAddButton';
+import { NotesFilter } from '~/components/organisms/NotesFilter';
+import { NotesList } from '~/components/organisms/NotesList';
 import { theme } from '~/theme';
 
 interface NotesListTemplateProps {

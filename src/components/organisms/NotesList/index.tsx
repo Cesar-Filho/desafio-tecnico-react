@@ -3,8 +3,8 @@ import { FlatList, StyleSheet } from 'react-native';
 import { Note } from '~/@types/notes';
 import { useTranslation } from 'react-i18next';
 
-import NoteCard from '~/components/molecules/NoteCard';
-import EmptyState from '~/components/atoms/EmptyState';
+import { NoteCard } from '~/components/molecules/NoteCard';
+import { EmptyState } from '~/components/atoms/EmptyState';
 
 interface NotesListProps {
   notes: Note[];
@@ -12,7 +12,11 @@ interface NotesListProps {
   contentContainerStyle?: object;
 }
 
-const NotesList: React.FC<NotesListProps> = ({ notes, onNotePress, contentContainerStyle }) => {
+export const NotesList: React.FC<NotesListProps> = ({
+  notes,
+  onNotePress,
+  contentContainerStyle,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -33,5 +37,3 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
   },
 });
-
-export default NotesList;

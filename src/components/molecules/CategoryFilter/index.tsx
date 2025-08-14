@@ -3,14 +3,17 @@ import { View, StyleSheet } from 'react-native';
 import { NoteCategory } from '~/@types/notes';
 import { useTranslation } from 'react-i18next';
 
-import FilterButton from '~/components/atoms/FilterButton';
+import { FilterButton } from '~/components/atoms/FilterButton';
 
 interface CategoryFilterProps {
   selectedCategory: NoteCategory | 'all';
   onSelectCategory: (category: NoteCategory | 'all') => void;
 }
 
-const CategoryFilter: React.FC<CategoryFilterProps> = ({ selectedCategory, onSelectCategory }) => {
+export const CategoryFilter: React.FC<CategoryFilterProps> = ({
+  selectedCategory,
+  onSelectCategory,
+}) => {
   const { t } = useTranslation();
   return (
     <View style={styles.container}>
@@ -45,5 +48,3 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 });
-
-export default CategoryFilter;

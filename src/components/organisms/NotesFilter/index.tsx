@@ -3,8 +3,8 @@ import { View, StyleSheet } from 'react-native';
 import { NoteCategory } from '~/@types/notes';
 import { useTranslation } from 'react-i18next';
 
-import SearchInput from '~/components/atoms/SearchInput';
-import CategoryFilter from '~/components/molecules/CategoryFilter';
+import { SearchInput } from '~/components/atoms/SearchInput';
+import { CategoryFilter } from '~/components/molecules/CategoryFilter';
 import { theme } from '~/theme';
 
 interface NotesFilterProps {
@@ -14,7 +14,7 @@ interface NotesFilterProps {
   onCategoryChange: (category: NoteCategory | 'all') => void;
 }
 
-const NotesFilter: React.FC<NotesFilterProps> = ({
+export const NotesFilter: React.FC<NotesFilterProps> = ({
   searchText,
   onSearchChange,
   selectedCategory,
@@ -40,5 +40,3 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
 });
-
-export default NotesFilter;

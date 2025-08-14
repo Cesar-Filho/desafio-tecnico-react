@@ -5,7 +5,7 @@ interface EmptyStateProps {
   message: string;
 }
 
-const EmptyState: React.FC<EmptyStateProps> = ({ message }) => (
+export const EmptyState: React.FC<EmptyStateProps> = ({ message }) => (
   <View style={styles.container}>
     <Text style={styles.text}>{message}</Text>
   </View>
@@ -23,5 +23,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-export default EmptyState;

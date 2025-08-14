@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { NoteFormData } from '~/@types/notes';
-import { NoteFormOrganism } from '~/components/organisms';
+import { NoteFormOrganism } from '~/components/organisms/NoteForm';
 import { theme } from '~/theme';
 
 interface NoteFormTemplateProps {

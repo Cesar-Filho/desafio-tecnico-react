@@ -10,7 +10,7 @@ interface FilterButtonProps {
   testID?: string;
 }
 
-const FilterButton: React.FC<FilterButtonProps> = ({
+export const FilterButton: React.FC<FilterButtonProps> = ({
   label,
   isActive,
   onPress,
@@ -39,5 +39,3 @@ const styles = StyleSheet.create({
   text: { color: theme.colors.text },
   textActive: { color: theme.colors.white, fontWeight: 'bold' },
 });
-
-export default FilterButton;

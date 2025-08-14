@@ -9,7 +9,7 @@ interface SearchInputProps extends TextInputProps {
   accessibilityLabel?: string;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({
+export const SearchInput: React.FC<SearchInputProps> = ({
   value,
   onChangeText,
   placeholder,
@@ -38,5 +38,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export default SearchInput;
