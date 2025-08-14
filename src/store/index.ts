@@ -32,7 +32,6 @@ export const store = configureStore({
     getDefaultMiddleware({ serializableCheck: false })
       .concat(notesApi.middleware)
       .concat(offlineNotesMiddleware),
-
   enhancers: (getDefaultEnhancers) => getDefaultEnhancers().concat(devToolsEnhancer()),
 });
 

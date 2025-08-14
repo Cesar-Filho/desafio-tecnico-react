@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
+import 'react-native-get-random-values';
 
 import { Note } from '~/@types/notes';
 

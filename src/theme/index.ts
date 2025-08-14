@@ -9,6 +9,7 @@ export const theme = {
     gray: '#757575',
     darkGray: '#616161',
     lightGray: '#E0E0E0',
+    backgroundGray: '#EEEEEE',
     border: '#BDBDBD',
     shadow: '#000000',
     error: '#D32F2F',
@@ -25,5 +26,6 @@ export const theme = {
     md: 8,
     lg: 12,
     xl: 16,
+    xxl: 32,
   },
 };
