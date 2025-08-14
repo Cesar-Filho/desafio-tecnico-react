@@ -5,9 +5,10 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-    padding: 16,
+    padding: theme.spacing.md,
   },
   listContent: {
-    paddingBottom: 80,
+    flexGrow: 1,
+    paddingBottom: theme.spacing.xxl,
   },
 });

@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
+import { View, ScrollView, Alert, TouchableOpacity, Text } from 'react-native';
 import { useNavigation, type StaticScreenProps } from '@react-navigation/native';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-native-get-random-values';
@@ -11,6 +10,9 @@ import 'react-native-get-random-values';
 import { useAppDispatch, useAppSelector } from '~/store';
 
 import { styles } from './styles';
+import { FormInput } from '~/components/atoms/FormInput';
+import { FormPicker } from '~/components/atoms/FormPicker';
+import { ImagePickerGroup } from '~/components/molecules/ImagePickerGroup';
 import { NoteFormData } from '~/@types/notes';
 import { NotesActions } from '~/store/slices/notes';
 
@@ -117,22 +119,21 @@ export default function NoteFormScreen({ route }: Props) {
   const category = watch('category');
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Controller
         control={control}
         name="category"
         render={({ field: { onChange, value } }) => (
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>{t('form.category')}</Text>
-            <Picker
-              selectedValue={value}
-              onValueChange={onChange}
-              style={styles.picker}
-              accessibilityLabel={t('form.category')}>
-              <Picker.Item label={t('categories.annotation')} value="annotation" />
-              <Picker.Item label={t('categories.recommendation')} value="recommendation" />
-            </Picker>
-          </View>
+          <FormPicker
+            label={t('form.category')}
+            selectedValue={value}
+            onValueChange={onChange}
+            items={[
+              { label: t('categories.annotation'), value: 'annotation' },
+              { label: t('categories.recommendation'), value: 'recommendation' },
+            ]}
+            accessibilityLabel={t('form.category')}
+          />
         )}
       />
 
@@ -141,18 +142,15 @@ export default function NoteFormScreen({ route }: Props) {
         name="title"
         rules={{ required: category === 'recommendation' ? t('errors.titleRequired') : false }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>{t('form.title')}</Text>
-            <TextInput
-              style={styles.input}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              placeholder={t('form.titlePlaceholder')}
-              accessibilityLabel={t('form.title')}
-            />
-            {errors.title && <Text style={styles.error}>{errors.title.message}</Text>}
-          </View>
+          <FormInput
+            label={t('form.title')}
+            value={value}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            placeholder={t('form.titlePlaceholder')}
+            error={errors.title?.message as string}
+            accessibilityLabel={t('form.title')}
+          />
         )}
       />
 
@@ -161,45 +159,21 @@ export default function NoteFormScreen({ route }: Props) {
         name="description"
         rules={{ required: t('errors.descriptionRequired') }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>{t('form.description')}</Text>
-            <TextInput
-              style={[styles.input, styles.multilineInput]}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              multiline
-              numberOfLines={4}
-              placeholder={t('form.descriptionPlaceholder')}
-              accessibilityLabel={t('form.description')}
-            />
-            {errors.description && <Text style={styles.error}>{errors.description.message}</Text>}
-          </View>
+          <FormInput
+            label={t('form.description')}
+            value={value}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            placeholder={t('form.descriptionPlaceholder')}
+            error={errors.description?.message as string}
+            accessibilityLabel={t('form.description')}
+            multiline
+            numberOfLines={4}
+          />
         )}
       />
 
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>
-          {t('form.images')} ({images.length}/5)
-        </Text>
-        <TouchableOpacity style={styles.imageButton} onPress={pickImage}>
-          <Text style={styles.imageButtonText}>{t('form.addImage')}</Text>
-        </TouchableOpacity>
-
-        <View style={styles.imagesContainer}>
-          {images.map((image, index) => (
-            <View key={index} style={styles.imageWrapper}>
-              <Image source={{ uri: image.uri }} style={styles.imageThumbnail} />
-              <TouchableOpacity
-                style={styles.removeImageButton}
-                onPress={() => removeImage(index)}
-                accessibilityLabel={t('form.removeImage')}>
-                <Text style={styles.removeImageButtonText}>×</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
-        </View>
-      </View>
+      <ImagePickerGroup images={images} onAdd={pickImage} onRemove={removeImage} />
 
       <TouchableOpacity style={styles.submitButton} onPress={handleSubmit(onSubmit)}>
         <Text style={styles.submitButtonText}>

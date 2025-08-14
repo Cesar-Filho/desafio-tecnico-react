@@ -3,7 +3,7 @@ import { theme } from '~/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: theme.colors.background,
     padding: theme.spacing.lg,
   },
@@ -86,9 +86,9 @@ export const styles = StyleSheet.create({
   submitButton: {
     backgroundColor: theme.colors.primary,
     padding: theme.spacing.lg,
-    borderRadius: theme.radius.md,
+    borderRadius: theme.radius.xxl,
     alignItems: 'center',
-    marginTop: theme.spacing.xl,
+    marginTop: theme.spacing.lg,
   },
   submitButtonText: {
     color: theme.colors.white,

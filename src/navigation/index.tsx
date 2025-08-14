@@ -9,12 +9,13 @@ const Stack = createStackNavigator({
   screens: {
     NotesList: {
       screen: NotesListScreen,
-      options: { title: 'Notes List' },
+      options: { title: 'Listagem' },
     },
     NoteForm: {
       screen: NoteFormScreen,
       options: ({ navigation }) => ({
         headerLeft: () => <BackButton onPress={navigation.goBack} />,
+        title: 'Formulário',
       }),
     },
   },

@@ -24,6 +24,7 @@ const resources = {
       },
       buttons: {
         addNote: 'Add Note',
+        back: 'Back',
       },
       search: {
         placeholder: 'Search notes...',
@@ -60,6 +61,7 @@ const resources = {
       },
       buttons: {
         addNote: 'Adicionar Nota',
+        back: 'Voltar',
       },
       search: {
         placeholder: 'Buscar notas...',
