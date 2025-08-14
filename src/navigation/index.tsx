@@ -1,16 +1,17 @@
 import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Overview from '../screens/overview';
-import Details from '../screens/details';
-import { BackButton } from '../components/BackButton';
+
+import { BackButton } from '~/components/atoms/BackButton';
+import NotesListScreen from '~/screens/NotesList';
+import NoteFormScreen from '~/screens/NoteForm';
 
 const Stack = createStackNavigator({
   screens: {
-    Overview: {
-      screen: Overview,
+    NotesList: {
+      screen: NotesListScreen,
     },
-    Details: {
-      screen: Details,
+    NoteForm: {
+      screen: NoteFormScreen,
       options: ({ navigation }) => ({
         headerLeft: () => <BackButton onPress={navigation.goBack} />,
       }),

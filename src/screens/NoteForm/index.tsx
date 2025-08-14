@@ -1,18 +1,18 @@
 import type { StaticScreenProps } from '@react-navigation/native';
-import { ScreenContent } from 'components/ScreenContent';
+import { View, StyleSheet } from 'react-native';
 
-import { StyleSheet, View } from 'react-native';
+import { ScreenContent } from '~/components/templates/ScreenContent';
 
 type Props = StaticScreenProps<{
-  name: string;
+  isEdit: boolean;
 }>;
 
-export default function Details({ route }: Props) {
+export default function NoteFormScreen({ route }: Props) {
   return (
     <View style={styles.container}>
       <ScreenContent
         path="screens/details.tsx"
-        title={`Showing details for user ${route.params?.name}`}
+        title={`Showing details for user ${route.params?.isEdit ? 'Editing' : 'Creating'} Note`}
       />
     </View>
   );
