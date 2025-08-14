@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
-import { View, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
 import { Note, NoteCategory } from '~/@types/notes';
 import { useAppSelector } from '~/store';
 
-import FloatingAddButton from '~/components/atoms/FloatingAddButton';
-import CategoryFilter from '~/components/molecules/CategoryFilter';
-import SearchInput from '~/components/atoms/SearchInput';
-import EmptyState from '~/components/atoms/EmptyState';
-import NoteCard from '~/components/molecules/NoteCard';
-
-import { styles } from './styles';
+import NotesListTemplate from '~/components/templates/NotesListTemplate';
 
 export default function NotesListScreen() {
   const navigation = useNavigation();
@@ -40,31 +33,15 @@ export default function NotesListScreen() {
   }, [notes, selectedCategory, searchText]);
 
   return (
-    <View style={styles.container}>
-      <SearchInput
-        value={searchText}
-        onChangeText={setSearchText}
-        placeholder={t('search.placeholder')}
-        accessibilityLabel={t('search.placeholder')}
-      />
-      <CategoryFilter selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
-      <FlatList
-        data={filteredNotes}
-        showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <NoteCard
-            note={item}
-            onPress={() => navigation.navigate('NoteForm', { noteId: item.id })}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-        ListEmptyComponent={<EmptyState message={t('emptyState.noNotes')} />}
-        contentContainerStyle={styles.listContent}
-      />
-      <FloatingAddButton
-        onPress={() => navigation.navigate('NoteForm', { noteId: '' })}
-        accessibilityLabel={t('buttons.addNote')}
-      />
-    </View>
+    <NotesListTemplate
+      notes={filteredNotes}
+      searchText={searchText}
+      onSearchChange={setSearchText}
+      selectedCategory={selectedCategory}
+      onCategoryChange={setSelectedCategory}
+      onNotePress={(noteId) => navigation.navigate('NoteForm', { noteId })}
+      onAddPress={() => navigation.navigate('NoteForm', { noteId: '' })}
+      addButtonAccessibilityLabel={t('buttons.addNote')}
+    />
   );
 }
