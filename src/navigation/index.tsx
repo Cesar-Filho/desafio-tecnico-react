@@ -9,6 +9,7 @@ const Stack = createStackNavigator({
   screens: {
     NotesList: {
       screen: NotesListScreen,
+      options: { title: 'Notes List' },
     },
     NoteForm: {
       screen: NoteFormScreen,

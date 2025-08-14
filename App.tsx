@@ -9,6 +9,7 @@ import { NotesSync } from '~/components/atoms/NotesSync';
 import Navigation from './src/navigation';
 
 import 'react-native-gesture-handler';
+import '~/utils/i18n';
 
 export default function App() {
   const colorScheme = useColorScheme();
