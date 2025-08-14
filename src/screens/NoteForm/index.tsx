@@ -5,6 +5,8 @@ import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
+import { v4 as uuidv4 } from 'uuid';
+import 'react-native-get-random-values';
 
 import { useAppDispatch, useAppSelector } from '~/store';
 
@@ -55,6 +57,8 @@ export default function NoteFormScreen({ route }: Props) {
 
   const onSubmit = (data: NoteFormData) => {
     try {
+      const now = new Date().toISOString();
+
       if (noteId && note) {
         dispatch(
           NotesActions.updateNote({
@@ -62,11 +66,19 @@ export default function NoteFormScreen({ route }: Props) {
             id: noteId,
             images,
             createdAt: note.createdAt,
-            updatedAt: new Date().toISOString(),
+            updatedAt: now,
           })
         );
       } else {
-        dispatch(NotesActions.addNote({ ...data, images }));
+        dispatch(
+          NotesActions.addNote({
+            ...data,
+            id: uuidv4(),
+            images,
+            createdAt: now,
+            updatedAt: now,
+          })
+        );
       }
 
       navigation.goBack();

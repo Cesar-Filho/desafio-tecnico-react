@@ -50,6 +50,7 @@ export default function NotesListScreen() {
       <CategoryFilter selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
       <FlatList
         data={filteredNotes}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <NoteCard
             note={item}

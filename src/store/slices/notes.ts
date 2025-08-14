@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
-import 'react-native-get-random-values';
 
 import { Note } from '~/@types/notes';
 
@@ -16,23 +14,16 @@ const notesSlice = createSlice({
   name: 'notes',
   initialState,
   reducers: {
-    addNote: (state, action: PayloadAction<Omit<Note, 'id' | 'createdAt' | 'updatedAt'>>) => {
-      const now = new Date().toISOString();
-      const newNote: Note = {
-        id: uuidv4(),
-        createdAt: now,
-        updatedAt: now,
-        ...action.payload,
-      };
-      state.notes.unshift(newNote);
+    setNotes: (state, action: PayloadAction<Note[]>) => {
+      state.notes = action.payload;
+    },
+    addNote: (state, action: PayloadAction<Note>) => {
+      state.notes.unshift(action.payload);
     },
     updateNote: (state, action: PayloadAction<Note>) => {
       const index = state.notes.findIndex((note) => note.id === action.payload.id);
       if (index !== -1) {
-        state.notes[index] = {
-          ...action.payload,
-          updatedAt: new Date().toISOString(),
-        };
+        state.notes[index] = { ...action.payload };
       }
     },
     deleteNote: (state, action: PayloadAction<string>) => {

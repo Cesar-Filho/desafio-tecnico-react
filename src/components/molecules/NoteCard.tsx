@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import { Note } from '~/@types/notes';
 import { useTranslation } from 'react-i18next';
+import { theme } from '~/theme';
 
 interface NoteCardProps {
   note: Note;
@@ -52,27 +53,32 @@ const NoteCard: React.FC<NoteCardProps> = ({ note, onPress }) => {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    borderRadius: theme.radius.lg,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
     elevation: 2,
   },
-  header: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
-  category: { fontWeight: 'bold', color: '#007AFF' },
-  date: { color: '#888', fontSize: 12 },
-  title: { fontSize: 16, fontWeight: 'bold', marginBottom: 2 },
-  description: { color: '#333', marginBottom: 6 },
-  images: { flexDirection: 'row', marginTop: 8 },
-  thumbnail: { width: 40, height: 40, borderRadius: 6, marginRight: 4 },
+  header: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: theme.spacing.xs },
+  category: { fontWeight: 'bold', color: theme.colors.primary },
+  date: { color: theme.colors.gray, fontSize: 12 },
+  title: { fontSize: 16, fontWeight: 'bold', marginBottom: theme.spacing.xs },
+  description: { color: theme.colors.gray, marginBottom: theme.spacing.xs },
+  images: { flexDirection: 'row', marginTop: theme.spacing.xs },
+  thumbnail: {
+    width: 40,
+    height: 40,
+    borderRadius: theme.radius.sm,
+    marginRight: theme.spacing.xs,
+  },
   moreIndicator: {
     justifyContent: 'center',
     alignItems: 'center',
     width: 40,
     height: 40,
-    backgroundColor: '#eee',
-    borderRadius: 6,
+    backgroundColor: theme.colors.lightGray,
+    borderRadius: theme.radius.sm,
   },
-  moreText: { color: '#007AFF', fontWeight: 'bold' },
+  moreText: { color: theme.colors.primaryDark, fontWeight: 'bold' },
 });
 
 export default NoteCard;
