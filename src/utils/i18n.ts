@@ -37,6 +37,10 @@ const resources = {
         descriptionRequired: 'Description is required',
         maxImages: 'Maximum 5 images allowed',
       },
+      headerTitle: {
+        form: 'Form',
+        list: 'List',
+      },
     },
   },
   pt: {
@@ -73,6 +77,10 @@ const resources = {
         titleRequired: 'Título é obrigatório para recomendações',
         descriptionRequired: 'Descrição é obrigatória',
         maxImages: 'Máximo de 5 imagens permitidas',
+      },
+      headerTitle: {
+        form: 'Formulário',
+        list: 'Listagem',
       },
     },
   },

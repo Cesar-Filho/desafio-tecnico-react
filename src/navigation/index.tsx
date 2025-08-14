@@ -1,5 +1,6 @@
 import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { t } from 'i18next';
 
 import { BackButton } from '~/components/atoms/BackButton';
 import NotesListScreen from '~/screens/NotesList';
@@ -9,13 +10,13 @@ const Stack = createStackNavigator({
   screens: {
     NotesList: {
       screen: NotesListScreen,
-      options: { title: 'Listagem' },
+      options: { title: t('headerTitle.list') },
     },
     NoteForm: {
       screen: NoteFormScreen,
       options: ({ navigation }) => ({
         headerLeft: () => <BackButton onPress={navigation.goBack} />,
-        title: 'Formulário',
+        title: t('headerTitle.form'),
       }),
     },
   },
