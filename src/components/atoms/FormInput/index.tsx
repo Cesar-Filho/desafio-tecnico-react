@@ -53,5 +53,6 @@ const styles = StyleSheet.create({
   },
   error: {
     fontSize: 12,
+    color: '#D32F2F',
   },
 });

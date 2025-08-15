@@ -25,6 +25,7 @@ const resources = {
       buttons: {
         addNote: 'Add Note',
         back: 'Back',
+        switchLanguage: 'Switch to Portuguese',
       },
       search: {
         placeholder: 'Search notes...',
@@ -66,6 +67,7 @@ const resources = {
       buttons: {
         addNote: 'Adicionar Nota',
         back: 'Voltar',
+        switchLanguage: 'Mudar para Inglês',
       },
       search: {
         placeholder: 'Buscar notas...',

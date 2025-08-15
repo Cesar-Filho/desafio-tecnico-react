@@ -13,7 +13,12 @@ export default function NotesListScreen() {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<NoteCategory | 'all'>('all');
   const [filteredNotes, setFilteredNotes] = useState<Note[]>(notes);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === 'pt' ? 'en' : 'pt';
+    i18n.changeLanguage(newLanguage);
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({ title: t('headerTitle.list') });
@@ -45,7 +50,9 @@ export default function NotesListScreen() {
       onCategoryChange={setSelectedCategory}
       onNotePress={(noteId) => navigation.navigate('NoteForm', { noteId })}
       onAddPress={() => navigation.navigate('NoteForm', { noteId: '' })}
+      onLanguageToggle={toggleLanguage}
       addButtonAccessibilityLabel={t('buttons.addNote')}
+      languageToggleAccessibilityLabel={t('buttons.switchLanguage')}
     />
   );
 }
