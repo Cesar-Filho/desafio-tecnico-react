@@ -1,16 +1,15 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '~/theme';
 
 export const styles = StyleSheet.create({
   submitButton: {
-    backgroundColor: theme.colors.primary,
-    padding: theme.spacing.lg,
-    borderRadius: theme.radius.xxl,
+    backgroundColor: '#4CAF50',
+    padding: 24,
+    borderRadius: 32,
     alignItems: 'center',
-    marginTop: theme.spacing.lg,
+    marginTop: 24,
   },
   submitButtonText: {
-    color: theme.colors.white,
+    color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
   },

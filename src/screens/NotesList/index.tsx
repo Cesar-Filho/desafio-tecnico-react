@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
@@ -14,6 +14,10 @@ export default function NotesListScreen() {
   const [selectedCategory, setSelectedCategory] = useState<NoteCategory | 'all'>('all');
   const [filteredNotes, setFilteredNotes] = useState<Note[]>(notes);
   const { t } = useTranslation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: t('headerTitle.list') });
+  }, [navigation, t]);
 
   useEffect(() => {
     let result = [...notes];

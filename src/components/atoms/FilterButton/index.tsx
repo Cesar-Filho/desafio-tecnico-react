@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { theme } from '~/theme';
 
 interface FilterButtonProps {
   label: string;
@@ -28,14 +27,14 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: theme.spacing.sm,
-    paddingHorizontal: theme.spacing.md,
-    borderRadius: theme.radius.xl,
-    backgroundColor: theme.colors.backgroundGray,
-    marginRight: theme.spacing.xs,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 16,
+    backgroundColor: '#EEEEEE',
+    marginRight: 4,
     alignItems: 'center',
   },
-  active: { backgroundColor: theme.colors.primary },
-  text: { color: theme.colors.text },
-  textActive: { color: theme.colors.white, fontWeight: 'bold' },
+  active: { backgroundColor: '#4CAF50' },
+  text: { color: '#212121' },
+  textActive: { color: '#FFFFFF', fontWeight: 'bold' },
 });

@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 import { SearchInput } from '~/components/atoms/SearchInput';
 import { CategoryFilter } from '~/components/molecules/CategoryFilter';
-import { theme } from '~/theme';
 
 interface NotesFilterProps {
   searchText: string;
@@ -37,6 +36,6 @@ export const NotesFilter: React.FC<NotesFilterProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: theme.spacing.sm,
+    marginBottom: 8,
   },
 });

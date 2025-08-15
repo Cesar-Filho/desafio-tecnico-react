@@ -5,7 +5,6 @@ import { Note, NoteCategory } from '~/@types/notes';
 import { FloatingAddButton } from '~/components/atoms/FloatingAddButton';
 import { NotesFilter } from '~/components/organisms/NotesFilter';
 import { NotesList } from '~/components/organisms/NotesList';
-import { theme } from '~/theme';
 
 interface NotesListTemplateProps {
   notes: Note[];
@@ -45,8 +44,8 @@ const NotesListTemplate: React.FC<NotesListTemplateProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: theme.spacing.md,
-    backgroundColor: theme.colors.background,
+    padding: 16,
+    backgroundColor: '#F5F5F5',
   },
 });
 

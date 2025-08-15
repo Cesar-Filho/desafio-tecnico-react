@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ImageThumbnail } from '~/components/atoms/ImageThumbnail';
 import { Button } from '~/components/atoms/Button';
-import { theme } from '~/theme';
 
 interface ImagePickerGroupProps {
   images: { uri: string }[];
@@ -51,16 +50,16 @@ export const ImagePickerGroup: React.FC<ImagePickerGroupProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: theme.spacing.lg,
+    marginBottom: 24,
   },
   label: {
     fontSize: 14,
     fontWeight: '500',
-    color: theme.colors.text,
-    marginBottom: theme.spacing.sm,
+    color: '#212121',
+    marginBottom: 8,
   },
   addButton: {
-    borderRadius: theme.radius.sm,
+    borderRadius: 4,
   },
   wrapper: {
     width: '50%',
@@ -68,6 +67,6 @@ const styles = StyleSheet.create({
   imagesContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: theme.spacing.md,
+    marginTop: 16,
   },
 });

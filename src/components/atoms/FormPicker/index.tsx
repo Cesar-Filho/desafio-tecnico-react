@@ -2,8 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
-import { theme } from '~/theme';
-
 interface FormPickerProps {
   label: string;
   selectedValue: string;
@@ -35,18 +33,18 @@ export const FormPicker: React.FC<FormPickerProps> = ({
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginBottom: theme.spacing.lg,
+    marginBottom: 24,
   },
   label: {
     fontSize: 14,
     fontWeight: '500',
-    color: theme.colors.text,
-    marginBottom: theme.spacing.sm,
+    color: '#212121',
+    marginBottom: 8,
   },
   picker: {
-    backgroundColor: theme.colors.white,
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.sm,
+    borderColor: '#BDBDBD',
+    borderRadius: 4,
   },
 });

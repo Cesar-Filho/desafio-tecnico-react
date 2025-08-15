@@ -1,6 +1,5 @@
 import React from 'react';
 import { TextInput, StyleSheet, TextInputProps } from 'react-native';
-import { theme } from '~/theme';
 
 interface SearchInputProps extends TextInputProps {
   value: string;
@@ -28,13 +27,13 @@ export const SearchInput: React.FC<SearchInputProps> = ({
 
 const styles = StyleSheet.create({
   input: {
-    padding: theme.spacing.md,
-    borderRadius: theme.radius.md,
+    padding: 16,
+    borderRadius: 8,
     borderWidth: 1,
-    borderColor: theme.colors.white,
-    marginBottom: theme.spacing.md,
-    backgroundColor: theme.colors.white,
-    color: theme.colors.text,
+    borderColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',
+    color: '#212121',
+    marginBottom: 16,
     fontSize: 16,
   },
 });

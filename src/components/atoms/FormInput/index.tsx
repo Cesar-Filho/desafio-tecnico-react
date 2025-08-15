@@ -1,8 +1,6 @@
 import React from 'react';
 import { TextInput, View, Text, TextInputProps, StyleSheet } from 'react-native';
 
-import { theme } from '~/theme';
-
 interface FormInputProps extends TextInputProps {
   label: string;
   error?: string;
@@ -23,36 +21,37 @@ export const FormInput: React.FC<FormInputProps> = ({
       accessibilityLabel={accessibilityLabel || label}
       {...props}
     />
-    {error ? <Text style={styles.error}>{error}</Text> : null}
+    {error ? (
+      <Text style={styles.error} accessibilityLabel={`Error: ${error}`}>
+        {error}
+      </Text>
+    ) : null}
   </View>
 );
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginBottom: theme.spacing.lg,
+    marginBottom: 24,
   },
   label: {
     fontSize: 14,
     fontWeight: '500',
-    color: theme.colors.text,
-    marginBottom: theme.spacing.sm,
+    marginBottom: 4,
   },
   input: {
-    backgroundColor: theme.colors.white,
     borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.sm,
-    padding: theme.spacing.md,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#BDBDBD',
+    borderRadius: 4,
+    color: '#212121',
     fontSize: 16,
-    color: theme.colors.text,
+    padding: 8,
   },
   multilineInput: {
     minHeight: 100,
     textAlignVertical: 'top',
   },
   error: {
-    color: theme.colors.error,
     fontSize: 12,
-    marginTop: theme.spacing.xs,
   },
 });

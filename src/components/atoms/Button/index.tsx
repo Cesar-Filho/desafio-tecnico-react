@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, TouchableOpacityProps } from 'react-native';
-import { theme } from '~/theme';
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
@@ -29,27 +28,27 @@ export const Button: React.FC<ButtonProps> = ({ title, variant = 'primary', styl
 
 const styles = StyleSheet.create({
   button: {
-    padding: theme.spacing.md,
-    borderRadius: theme.radius.xxl,
+    padding: 16,
+    borderRadius: 32,
     alignItems: 'center',
     justifyContent: 'center',
   },
   primaryButton: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: '#4CAF50',
   },
   secondaryButton: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: theme.colors.primary,
+    borderColor: '#4CAF50',
   },
   buttonText: {
     fontWeight: 'bold',
     fontSize: 16,
   },
   primaryButtonText: {
-    color: theme.colors.white,
+    color: '#FFFFFF',
   },
   secondaryButtonText: {
-    color: theme.colors.primary,
+    color: '#4CAF50',
   },
 });

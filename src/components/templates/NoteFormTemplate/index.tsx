@@ -2,7 +2,6 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { NoteFormData } from '~/@types/notes';
 import { NoteFormOrganism } from '~/components/organisms/NoteForm';
-import { theme } from '~/theme';
 
 interface NoteFormTemplateProps {
   initialValues: Partial<NoteFormData>;
@@ -38,7 +37,7 @@ export const NoteFormTemplate: React.FC<NoteFormTemplateProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: theme.colors.background,
-    padding: theme.spacing.lg,
+    backgroundColor: '#F5F5F5',
+    padding: 24,
   },
 });

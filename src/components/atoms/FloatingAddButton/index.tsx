@@ -2,8 +2,6 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { theme } from '~/theme';
-
 interface FloatingAddButtonProps {
   onPress: () => void;
   accessibilityLabel?: string;
@@ -18,17 +16,17 @@ export const FloatingAddButton: React.FC<FloatingAddButtonProps> = ({
     onPress={onPress}
     accessibilityLabel={accessibilityLabel}
     testID="add-note-button">
-    <MaterialCommunityIcons name="plus" size={24} color={theme.colors.white} />
+    <MaterialCommunityIcons name="plus" size={24} color="#FFFFFF" />
   </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
   button: {
     position: 'absolute',
-    right: theme.spacing.lg,
-    bottom: theme.spacing.lg,
-    backgroundColor: theme.colors.primary,
-    borderRadius: theme.radius.xxl,
+    right: 24,
+    bottom: 24,
+    backgroundColor: '#4CAF50',
+    borderRadius: 32,
     width: 56,
     height: 56,
     justifyContent: 'center',

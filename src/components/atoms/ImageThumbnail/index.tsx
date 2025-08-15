@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { theme } from '~/theme';
 
 interface ImageThumbnailProps {
   uri: string;
@@ -29,20 +28,20 @@ export const ImageThumbnail: React.FC<ImageThumbnailProps> = ({
 const styles = StyleSheet.create({
   imageWrapper: {
     position: 'relative',
-    marginRight: theme.spacing.sm,
-    marginBottom: theme.spacing.sm,
+    marginRight: 8,
+    marginBottom: 8,
   },
   imageThumbnail: {
     width: 80,
     height: 80,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.lightGray,
+    borderRadius: 4,
+    backgroundColor: '#E0E0E0',
   },
   removeImageButton: {
     position: 'absolute',
     top: -8,
     right: -8,
-    backgroundColor: theme.colors.error,
+    backgroundColor: '#D32F2F',
     borderRadius: 12,
     width: 24,
     height: 24,
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   removeImageButtonText: {
-    color: theme.colors.white,
+    color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
     lineHeight: 20,
